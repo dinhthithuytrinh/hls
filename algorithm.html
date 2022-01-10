@@ -1,0 +1,132 @@
+<html lang="ja" id="pagetop">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="page-index">
+    <header class="c-header">
+        <div class="l-container">
+            <div class="c-header1">
+                <a href="" class="c-header1__logo">
+                    <img src="/img/logo.png" alt="">
+                </a>
+                <a href="" class="c-header1__logo">
+                    <img src="/img/copyright.png" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="p-top">
+        <section class="p-top__mv">
+            <div class="l-container">
+                <h2 class="c-title1">
+                    <span class="c-title1__large">A joke a day keeps the doctor away</span>
+                    <span class="c-title1__small">If you joke wrong way, your teeth have to pay(Sirious)</span>
+                </h2>
+            </div>
+        </section>
+        <section class="p-top__main">
+            <div class="l-container">
+                <h3 class="c-title2" id="post">A single line of five space-separated intergers</h3>
+                <form class="array" action="index.html" method="post">
+                    <input class="input" id="array" type="text" name="array" pattern="[0-9]+" value="" /><br>
+                    <p class="result" id="result"></p>
+                    <p class="result" id="result1"></p>
+                    <p class="result" id="result2"></p>
+                    <button class="liked" type="button" name="button" onclick="sumMinMax()">
+                        Result
+                    </button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+
+    <script type="text/javascript">
+        var input = document.querySelector('input');
+        input.addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9 \,]/, '');
+        });
+
+        function sumMinMax() {
+            var input = document.getElementById('array').value;
+            // console.log(input);
+            var int_arr = input.split(/[ ,]+/);
+
+            var _arr = int_arr.map(i => Number(i));
+            console.log(_arr);
+            var max = Math.max.apply(Math, int_arr)
+            var min = Math.min.apply(Math, int_arr)
+
+            console.log("Giá trị lớn nhất là " + max + "<br/>");
+            console.log("Giá trị nhỏ nhất là " + min + "<br/>");
+            function sumMinMax(_arr) {
+                let sum = 0;
+                console.log(_arr.length);
+                if (_arr.length > 5 || _arr.length < 5) {
+                    console.log("nhap 5")
+                    alert("Please enter 5 value!");
+                } else {
+                    for (let i = 0; i < _arr.length; i++) {
+                        // x = parseInt(int_arr[i], 10)
+                        // // console.log(x);
+                        sum += _arr[i];
+                        // console.log(sum);
+
+                        sumMin = sum - max;
+                        sumMax = sum - min;
+                    }
+                    return sumMin + " " + sumMax;
+                }
+
+            }
+            console.log(sumMinMax(_arr));
+            document.getElementById("result").innerHTML = "Sum min and max: " + sumMinMax(_arr);
+
+            function check_odd_even(n) {
+                let flag = 1;
+                if (n % 2 == 0) flag = 0;
+                return flag;
+            }
+
+            let odd_arr = [];
+            let even_arr = [];
+
+            for (let i = 0; i < _arr.length; i++) {
+                if (check_odd_even(_arr[i]) == 0) even_arr.push(_arr[i]);
+                else odd_arr.push(_arr[i])
+            }
+
+            console.log(odd_arr);
+            console.log(even_arr);
+            document.getElementById("result1").innerHTML = "Odd array: " + odd_arr;
+            document.getElementById("result2").innerHTML = "Even array: " + even_arr;
+        }
+
+
+    </script>
+    <footer class="c-footer">
+        <div class="l-container">
+            <p class="c-footer__text">this website is created as part of HLSolution program. The materials contained on
+                this website a provided for general infomation only and do not constitute any form of advice. HLS
+                assumes no responsibility fi the accuracy of any parrticular statement and accepts no liability fo any
+                loss orr damage which may arrise from reliance on the infomation contained on thes site</p>
+            <p class="c-footer__conpyright">Copyright 2021 HLS</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+
+</body>
+
+</html>
