@@ -456,3 +456,26 @@ other
 .c-title1{
   font-size: 5.0rem;
 }
+.u-center{
+  text-align: center;
+}
+.u-center1{
+  margin: 0 auto;
+}
+.c-title2{
+  font-size: 3rem;
+}
+.result{
+  font-size: 3rem;
+}
+.input{
+  height: 60px;
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 3rem;
+}
+.array .liked{
+  margin: 0;
+  margin-top: 20px;
+  
+}
