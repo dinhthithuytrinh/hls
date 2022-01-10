@@ -72,25 +72,23 @@
             function sumMinMax(_arr) {
                 let sum = 0;
                 console.log(_arr.length);
-                if (_arr.length > 5 || _arr.length < 5) {
-                    console.log("nhap 5")
-                    alert("Please enter 5 value!");
-                } else {
-                    for (let i = 0; i < _arr.length; i++) {
-                        // x = parseInt(int_arr[i], 10)
-                        // // console.log(x);
-                        sum += _arr[i];
-                        // console.log(sum);
+                for (let i = 0; i < _arr.length; i++) {
+                    // x = parseInt(int_arr[i], 10)
+                    // // console.log(x);
+                    sum += _arr[i];
+                    // console.log(sum);
 
-                        sumMin = sum - max;
-                        sumMax = sum - min;
-                    }
-                    return sumMin + " " + sumMax;
+                    sumMin = sum - max;
+                    sumMax = sum - min;
                 }
+                return sumMin + " " + sumMax;
+                // document.getElementById("result").innerHTML = "Sum min and max: " + sumMinMax(_arr);
 
             }
             console.log(sumMinMax(_arr));
-            document.getElementById("result").innerHTML = "Sum min and max: " + sumMinMax(_arr);
+
+
+
 
             function check_odd_even(n) {
                 let flag = 1;
@@ -101,15 +99,22 @@
             let odd_arr = [];
             let even_arr = [];
 
+
             for (let i = 0; i < _arr.length; i++) {
                 if (check_odd_even(_arr[i]) == 0) even_arr.push(_arr[i]);
                 else odd_arr.push(_arr[i])
             }
-
             console.log(odd_arr);
             console.log(even_arr);
-            document.getElementById("result1").innerHTML = "Odd array: " + odd_arr;
-            document.getElementById("result2").innerHTML = "Even array: " + even_arr;
+
+            if (_arr.length > 5 || _arr.length < 5) {
+                alert("Please enter 5 value!!");
+            } else {
+                document.getElementById("result").innerHTML = "Minimun and Minimax sum: " + sumMinMax(_arr);
+                document.getElementById("result1").innerHTML = "Odd array: " + odd_arr;
+                document.getElementById("result2").innerHTML = "Even array: " + even_arr;
+            }
+
         }
 
 
